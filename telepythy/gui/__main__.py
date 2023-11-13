@@ -32,7 +32,7 @@ def main():
 
     args = parser.parse_args()
 
-    app = QtWidgets.QApplication()
+    app = QtWidgets.QApplication([])  # it needs empty list to run on Linux
     app.setWindowIcon(QtGui.QIcon(':icon'))
 
     logs.init(args.verbose, mode='ctl', filename=args.log_file, color=True,
