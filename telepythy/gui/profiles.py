@@ -44,5 +44,5 @@ class Profiles:
 
     def _parse_profiles(self, profiles):
         for profile, value in profiles.items():
-            name, type = profile.split('.')
+            name, type = profile.rsplit('.', 1)
             yield (name, {type: value})
