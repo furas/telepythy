@@ -72,8 +72,8 @@ class Highlighter(QtGui.QSyntaxHighlighter):
         elif state in (BlockState.session, BlockState.fold):
             style = self._style
             fmt = QtGui.QTextCharFormat()
-            fmt.setForeground(QtGui.QBrush(style.highlight_text_color))
-            fmt.setBackground(QtGui.QBrush(style.highlight_color))
+            fmt.setForeground(QtGui.QBrush(QtGui.QColor(style.highlight_text_color)))
+            fmt.setBackground(QtGui.QBrush(QtGui.QColor(style.highlight_color)))
             self.setFormat(0, block.length(), fmt)
 
             BlockData.update_block(block, state=state)
@@ -143,4 +143,4 @@ class Highlighter(QtGui.QSyntaxHighlighter):
         """Returns a brush for the color."""
         if color and not color.startswith('#'):
             color = '#' + color
-        return QtGui.QBrush(color)
+        return QtGui.QBrush(QtGui.QColor(color))
